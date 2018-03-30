@@ -1,0 +1,4 @@
+@font-face {
+  font-family: 'Ultra';
+  src: local('Ultra'), url('./Ultra.otf') format('opentype');
+}

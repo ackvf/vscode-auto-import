@@ -1,5 +1,6 @@
 {
     "extends": ["tslint-react"],
+    "defaultSeverity": "warning",
     "rules": {
         "align": [
             true,
@@ -13,14 +14,18 @@
             true,
             "check-space"
         ],
-        "curly": true,
+        "curly": false,
         "eofline": false,
         "forin": true,
         "indent": [ true, "spaces" ],
         "interface-name": [true, "never-prefix"],
         "jsdoc-format": true,
-        "jsx-no-lambda": false,
+        "jsx-alignment": false,
+        "jsx-curly-spacing": false,
+        "jsx-no-bind": true,
+        "jsx-no-lambda": true,
         "jsx-no-multiline-js": false,
+        "jsx-boolean-value": [true, "never"],
         "label-position": true,
         "max-line-length": [ true, 120 ],
         "member-ordering": [
@@ -28,6 +33,13 @@
             "public-before-private",
             "static-before-instance",
             "variables-before-functions"
+        ],
+        "ordered-imports": [
+            true,
+            {
+                "import-sources-order": "any",
+                "named-imports-order": "case-insensitive"
+            }
         ],
         "no-any": true,
         "no-arg": true,
@@ -42,9 +54,9 @@
             "timeEnd",
             "trace"
         ],
-        "no-consecutive-blank-lines": true,
+        "no-consecutive-blank-lines": [true, 2],
         "no-construct": true,
-        "no-debugger": true,
+        "no-debugger": {"severity": "warning"},
         "no-duplicate-variable": true,
         "no-empty": true,
         "no-eval": true,
@@ -53,6 +65,7 @@
         "no-switch-case-fall-through": true,
         "no-trailing-whitespace": false,
         "no-unused-expression": true,
+        "no-unused-variable": [true, {"ignore-pattern": "^_"}],
         "no-use-before-declare": true,
         "one-line": [
             true,
@@ -63,7 +76,7 @@
         ],
         "quotemark": [true, "single", "jsx-double"],
         "radix": true,
-        "semicolon": [true, "always"],
+        "semicolon": [true, "never"],
         "switch-default": true,
 
         "trailing-comma": [false],

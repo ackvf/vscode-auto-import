@@ -1,0 +1,7 @@
+.active {
+  text-decoration-style: dashed;
+}
+
+nav > :nth-child(n+2) {
+  margin-left: 10px;
+}

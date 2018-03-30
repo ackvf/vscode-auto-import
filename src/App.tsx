@@ -1,22 +1,53 @@
-import * as React from 'react';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-const logo = require('./logo.svg');
+import { Account, Dashboard, LandingPage, SignIn } from '~/pages'
+import Navigation from '~/components/Navigation'
+import PrivateRoute from '~/HOC/PrivateRoute';
+import * as routes from '~/pages/routes'
+import '~/fonts/fonts.css'
+import '~/App.css'
 
-class App extends React.Component {
+const logo = require('~/logo.svg')
+const logoFuture = require('~/logo-future.png')
+
+
+export default class App extends React.Component {
+
   render() {
     return (
-      <div className="App">
+      <Router>
+        <>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={logo} className="App-logo spin" alt="logo" />
+          <img src={logoFuture} className="App-logo" alt="logo" />
+          <h1 className="App-title">future cloud mining</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
+        <Navigation/>
+        <main>
+          <PrivateRoute
+            exact path={routes.ACCOUNT}
+            component={Account}
+          />
+          <PrivateRoute
+            exact path={routes.DASHBOARD}
+            component={Dashboard}
+          />
+          <Route
+            exact path={routes.LANDING}
+            component={LandingPage}
+          />
+          <Route
+            exact path={routes.PLAYGROUND.FONTS}
+            render={() => "blank"}
+          />
+          <Route
+            exact path={routes.SIGN_IN}
+            component={SignIn}
+          />
+        </main>
+        </>
+      </Router>
+    )
   }
 }
-
-export default App;
